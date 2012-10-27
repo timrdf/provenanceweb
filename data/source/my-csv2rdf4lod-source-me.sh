@@ -163,7 +163,7 @@ export CSV2RDF4LOD_CONVERT_PERSON_URI=""
 #  https://github.com/timrdf/csv2rdf4lod-automation/blob/master/bin/util/virtuoso/vload)
 #
 export CSV2RDF4LOD_CONVERT_DATA_ROOT="/projects/lobd/data/source"
-export CSV2RDF4LOD_CONVERT_DATA_ROOT=""
+export CSV2RDF4LOD_CONVERT_DATA_ROOT="/srv/provenanceweb/data/source"
 
 #
 # Customize: Prevent the naive interpretation of tabular data ("raw" layer).
@@ -358,7 +358,7 @@ export CSV2RDF4LOD_PUBLISH_PURGE_AUTODIR="false"
 # (done in cr-publish-void-to-endpoint.sh)
 #
 export CSV2RDF4LOD_PUBLISH_OUR_SOURCE_ID="twc-rpi-edu"
-export CSV2RDF4LOD_PUBLISH_OUR_SOURCE_ID=""
+export CSV2RDF4LOD_PUBLISH_OUR_SOURCE_ID="provenanceweb-org"
 
 #
 # Customize: Specify the "base" conversion_identifier
