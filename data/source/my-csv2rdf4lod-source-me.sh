@@ -163,7 +163,7 @@ export CSV2RDF4LOD_CONVERT_PERSON_URI=""
 #  https://github.com/timrdf/csv2rdf4lod-automation/blob/master/bin/util/virtuoso/vload)
 #
 export CSV2RDF4LOD_CONVERT_DATA_ROOT="/projects/lobd/data/source"
-export CSV2RDF4LOD_CONVERT_DATA_ROOT="/srv/provenanceweb/data/source"
+export CSV2RDF4LOD_CONVERT_DATA_ROOT="/home/provenanceweb/repos/provenanceweb/data/source"
 
 #
 # Customize: Prevent the naive interpretation of tabular data ("raw" layer).
