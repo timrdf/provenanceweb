@@ -553,8 +553,8 @@ export CSV2RDF4LOD_CONCURRENCY="2"
 #
 # (done in convert-aggregate.sh and publish/bin/ln-*.sh)
 #
-export CSV2RDF4LOD_PUBLISH_VARWWW_DUMP_FILES="true"
 export CSV2RDF4LOD_PUBLISH_VARWWW_DUMP_FILES="false"
+export CSV2RDF4LOD_PUBLISH_VARWWW_DUMP_FILES="true"
 
 #
 # Customize: The path to the htdocs directory, to host files on the web.
@@ -563,8 +563,8 @@ export CSV2RDF4LOD_PUBLISH_VARWWW_DUMP_FILES="false"
 #
 # (done in convert-aggregate.sh and publish/bin/ln-*.sh)
 #
-export CSV2RDF4LOD_PUBLISH_VARWWW_ROOT="/var/www"
 export CSV2RDF4LOD_PUBLISH_VARWWW_ROOT=""
+export CSV2RDF4LOD_PUBLISH_VARWWW_ROOT="/var/www"
 
 #
 # Customize: use ln or ln -s when linking from the conversion root
