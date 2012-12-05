@@ -102,7 +102,7 @@ export CSV2RDF4LOD_CONVERTER=""
 # see https://github.com/timrdf/csv2rdf4lod-automation/wiki/Conversion-process-phase:-name
 #
 export CSV2RDF4LOD_BASE_URI="http://logd.tw.rpi.edu"
-export CSV2RDF4LOD_BASE_URI="http://aquarius.tw.rpi.edu/projects/provenanceweb"
+export CSV2RDF4LOD_BASE_URI="http://provenanceweb.org"
 
 #
 # Customize: A base URI to use in place of CSV2RDF4LOD_BASE_URI
@@ -120,8 +120,8 @@ export CSV2RDF4LOD_BASE_URI="http://aquarius.tw.rpi.edu/projects/provenanceweb"
 # (used in convert-aggregate.sh)
 #
 # a conversion:ActivityLevelEnvironmentVariable
-export CSV2RDF4LOD_BASE_URI_OVERRIDE="http://tw2.tw.rpi.edu"
 export CSV2RDF4LOD_BASE_URI_OVERRIDE=""
+export CSV2RDF4LOD_BASE_URI_OVERRIDE="http://aquarius.tw.rpi.edu/projects/provenanceweb"
 
 #
 # Customize: The URI for the machine that is running the conversions.
