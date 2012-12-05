@@ -120,8 +120,8 @@ export CSV2RDF4LOD_BASE_URI="http://provenanceweb.org"
 # (used in convert-aggregate.sh)
 #
 # a conversion:ActivityLevelEnvironmentVariable
-export CSV2RDF4LOD_BASE_URI_OVERRIDE=""
 export CSV2RDF4LOD_BASE_URI_OVERRIDE="http://aquarius.tw.rpi.edu/projects/provenanceweb"
+export CSV2RDF4LOD_BASE_URI_OVERRIDE=""
 
 #
 # Customize: The URI for the machine that is running the conversions.
