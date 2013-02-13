@@ -1,3 +1,23 @@
+<!--
+#3> <> a prov:Entity;
+#3>    dcterms:title "provx2o.xsl";
+#3>    prov:specializationOf <https://github.com/timrdf/provenanceweb/blob/master/src/provx2o.xsl>;
+#3>    prov:wasAttributedTo  <http://tw.rpi.edu/instances/TimLebo>;
+#3>    rdfs:seeAlso <http://www.w3.org/TR/grddl-primer/>,
+#3>                 <http://www.w3.org/TR/prov-xml/>,
+#3>                 <http://www.w3.org/TR/prov-o/>,
+#3>                 <https://github.com/timrdf/csv2rdf4lod-automation/wiki/tic-turtle-in-comments>,
+#3>                 <http://www.w3.org/TR/prov-implementations/>;
+#3>    dcterms:description """
+#3>       This XSL transform can be used to generate a PROV-O representation of a PROV-XML representation.
+#3>       The following attributes may be included in any PROV-XML document to signal that this transform is available.""";
+#3> .
+
+   <prov:document
+       xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+       grddl:transformation="https://raw.github.com/timrdf/provenanceweb/master/src/provx2o.xsl"
+-->
+
 <xsl:transform version="2.0" 
                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
