@@ -1,7 +1,8 @@
 <!--
-#3> <> a prov:Entity;
+#3> <> a prov:Entity, doap:Project;
 #3>    dcterms:title "provx2o.xsl";
 #3>    prov:specializationOf  <https://github.com/timrdf/provenanceweb/blob/master/src/provx2o.xsl>;
+#3>    doap:developer         <http://tw.rpi.edu/instances/TimLebo>;
 #3>    prov:wasAttributedTo   <http://tw.rpi.edu/instances/TimLebo>;
 #3>    dcterms:isReferencedBy <http://www.w3.org/TR/prov-implementations/>,
 #3>    rdfs:seeAlso <http://www.w3.org/TR/prov-xml/>,
@@ -11,11 +12,14 @@
 #3>    dcterms:description """
 #3>       This XSL transform can be used to generate a PROV-O representation of a PROV-XML representation.
 #3>       The following attributes may be included in any PROV-XML document to signal that this transform is available.""";
+#3>    doap:bug-database <https://github.com/timrdf/provenanceweb/issues>;
 #3> .
 
    <prov:document
        xmlns:grddl="http://www.w3.org/2003/g/data-view#"
        grddl:transformation="https://raw.github.com/timrdf/provenanceweb/master/src/provx2o.xsl"
+
+Please note that this transform is incomplete. If you need it to do more, please feel free to fork it or add a GitHub issue
 -->
 
 <xsl:transform version="2.0" 
