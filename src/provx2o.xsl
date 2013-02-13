@@ -5,6 +5,7 @@
 #3>    doap:developer         <http://tw.rpi.edu/instances/TimLebo>;
 #3>    prov:wasAttributedTo   <http://tw.rpi.edu/instances/TimLebo>;
 #3>    dcterms:isReferencedBy <http://www.w3.org/TR/prov-implementations/>,
+#3>    foaf:homepage          <https://github.com/timrdf/provenanceweb/wiki/provx2o>;
 #3>    rdfs:seeAlso <http://www.w3.org/TR/prov-xml/>,
 #3>                 <http://www.w3.org/TR/grddl-primer/>,
 #3>                 <http://www.w3.org/TR/prov-o/>,
