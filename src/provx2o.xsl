@@ -1,12 +1,12 @@
 <!--
 #3> <> a prov:Entity;
 #3>    dcterms:title "provx2o.xsl";
-#3>    prov:specializationOf <https://github.com/timrdf/provenanceweb/blob/master/src/provx2o.xsl>;
-#3>    prov:wasAttributedTo  <http://tw.rpi.edu/instances/TimLebo>;
+#3>    prov:specializationOf  <https://github.com/timrdf/provenanceweb/blob/master/src/provx2o.xsl>;
+#3>    prov:wasAttributedTo   <http://tw.rpi.edu/instances/TimLebo>;
+#3>    dcterms:isReferencedBy <http://www.w3.org/TR/prov-implementations/>,
 #3>    rdfs:seeAlso <http://www.w3.org/TR/prov-xml/>,
 #3>                 <http://www.w3.org/TR/grddl-primer/>,
 #3>                 <http://www.w3.org/TR/prov-o/>,
-#3>                 <http://www.w3.org/TR/prov-implementations/>,
 #3>                 <https://github.com/timrdf/csv2rdf4lod-automation/wiki/tic-turtle-in-comments>;
 #3>    dcterms:description """
 #3>       This XSL transform can be used to generate a PROV-O representation of a PROV-XML representation.
