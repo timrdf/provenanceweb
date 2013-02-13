@@ -5,6 +5,7 @@
 #3>    doap:developer         <http://tw.rpi.edu/instances/TimLebo>;
 #3>    prov:wasAttributedTo   <http://tw.rpi.edu/instances/TimLebo>;
 #3>    dcterms:isReferencedBy <http://www.w3.org/TR/prov-implementations/>,
+#3>                           <https://www.w3.org/2002/09/wbs/46974/prov-vocabulary-survey/results>;
 #3>    foaf:homepage          <https://github.com/timrdf/provenanceweb/wiki/provx2o>;
 #3>    rdfs:seeAlso <http://www.w3.org/TR/prov-xml/>,
 #3>                 <http://www.w3.org/TR/grddl-primer/>,
@@ -14,8 +15,8 @@
 #3>       This XSL transform can be used to generate a PROV-O representation of a PROV-XML representation.
 #3>       The following attributes may be included in any PROV-XML document to signal that this transform is available.""";
 #3>
-#3>    rdfs:comment "Please note that this transform is incomplete. 
-#3>                  If you need it to do more, please feel free to fork it or add a GitHub issue.";
+#3>    rdfs:comment """Please note that this transform is incomplete. 
+#3>                    If you need it to do more, please feel free to fork it or add a GitHub issue.""";
 #3>    doap:bug-database <https://github.com/timrdf/provenanceweb/issues>;
 #3> .
 
