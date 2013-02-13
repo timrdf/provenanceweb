@@ -13,6 +13,9 @@
 #3>    dcterms:description """
 #3>       This XSL transform can be used to generate a PROV-O representation of a PROV-XML representation.
 #3>       The following attributes may be included in any PROV-XML document to signal that this transform is available.""";
+#3>
+#3>    rdfs:comment "Please note that this transform is incomplete. 
+#3>                  If you need it to do more, please feel free to fork it or add a GitHub issue.";
 #3>    doap:bug-database <https://github.com/timrdf/provenanceweb/issues>;
 #3> .
 
@@ -20,7 +23,6 @@
        xmlns:grddl="http://www.w3.org/2003/g/data-view#"
        grddl:transformation="https://raw.github.com/timrdf/provenanceweb/master/src/provx2o.xsl"
 
-Please note that this transform is incomplete. If you need it to do more, please feel free to fork it or add a GitHub issue
 -->
 
 <xsl:transform version="2.0" 
