@@ -35,6 +35,7 @@
     rdfs:comment """Please note that this transform is incomplete. 
                    If you need it to do more, please feel free to fork it or add a GitHub issue.""" ;
     rdfs:seeAlso <http://www.w3.org/TR/grddl-primer/>, <http://www.w3.org/TR/prov-o/>, <http://www.w3.org/TR/prov-xml/>, <https://github.com/timrdf/csv2rdf4lod-automation/wiki/tic-turtle-in-comments> ;
+    prov:hasProvenance <https://raw.github.com/timrdf/provenanceweb/master/src/provx2o.xsl.prov.ttl> ;
     prov:specializationOf <https://github.com/timrdf/provenanceweb/blob/master/src/provx2o.xsl> ;
     prov:wasAttributedTo twi:TimLebo ;
     foaf:homepage <https://github.com/timrdf/provenanceweb/wiki/provx2o> .

@@ -2,6 +2,7 @@
 #3> <> a prov:Entity, doap:Project;
 #3>    dcterms:title "provx2o.xsl";
 #3>    prov:specializationOf  <https://github.com/timrdf/provenanceweb/blob/master/src/provx2o.xsl>;
+#3>    prov:hasProvenance     <https://raw.github.com/timrdf/provenanceweb/master/src/provx2o.xsl.prov.ttl>;
 #3>    doap:developer         <http://tw.rpi.edu/instances/TimLebo>;
 #3>    prov:wasAttributedTo   <http://tw.rpi.edu/instances/TimLebo>;
 #3>    dcterms:isReferencedBy <http://www.w3.org/TR/prov-implementations/>,
