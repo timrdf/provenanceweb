@@ -27,7 +27,7 @@
     dcterms:description """
       This XSL transform can be used to generate a PROV-O representation of a PROV-XML representation.
       The following attributes may be included in any PROV-XML document to signal that this transform is available.""" ;
-    dcterms:isReferencedBy <http://www.w3.org/TR/prov-implementations/>, <https://www.w3.org/2002/09/wbs/46974/prov-vocabulary-survey/results> ;
+    dcterms:isReferencedBy <http://www.w3.org/TR/prov-implementations/>, <https://www.w3.org/2002/09/wbs/46974/prov-implementation-survey/results> ;
     dcterms:title "provx2o.xsl" ;
     doap:bug-database <https://github.com/timrdf/provenanceweb/issues> ;
     doap:developer twi:TimLebo ;
