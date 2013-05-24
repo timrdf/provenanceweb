@@ -1,22 +1,19 @@
 <?php
 
-$conf['endpoint']['local'] = 'http://aquarius.tw.rpi.edu/projects/provenanceweb/sparql';
+$conf['endpoint']['local'] = 'http://provenanceweb.tw.rpi.edu/sparql';
 $conf['home'] = '/var/www/lodspeakr/';
-$conf['basedir'] = 'http://aquarius.tw.rpi.edu/projects/provenanceweb/';
+$conf['basedir'] = 'http://provenanceweb.tw.rpi.edu/';
 $conf['debug'] = false;
-$conf['root'] = 'home.html';
 
-$lodspk['sitetitle'] = 'provenanceweb';
+$conf['ns']['local']   = 'http://provenanceweb.tw.rpi.edu';
 
-/*ATTENTION: By default this application is available to
- * be exported and copied (its configuration)
- * by others. If you do not want that, 
- * turn the next option as false
- */ 
-$conf['export'] = true;
-#If you want to add/overrid a namespace, add it here
-$conf['ns']['local']   = 'http://provenanceweb.org/';
-$conf['ns']['base']   = 'http://aquarius.tw.rpi.edu/projects/provenanceweb/';
 
-$conf['mirror_external_uris'] = $conf['ns']['local'];
+$conf['mirror_external_uris'] = false;
+
+// Cherry-picked components (see https://github.com/alangrafu/lodspeakr/wiki/Reuse-cherry-picked-components-from-other-repositories)
+
+// Variables in  can be used to store user info.
+// For examples, 'title' will be used in the header.
+// (You can forget about all conventions and use your own as well)
+$lodspk['title'] = 'LODSPeaKr';
 ?>
