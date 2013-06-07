@@ -1,11 +1,11 @@
 <?php
 
-$conf['endpoint']['local'] = 'http://provenanceweb.tw.rpi.edu/sparql';
+$conf['endpoint']['local'] = 'http://provenanceweb.org/sparql';
 $conf['home'] = '/var/www/lodspeakr/';
-$conf['basedir'] = 'http://provenanceweb.tw.rpi.edu/';
+$conf['basedir'] = 'http://provenanceweb.org/';
 $conf['debug'] = false;
 
-$conf['ns']['local']   = 'http://provenanceweb.tw.rpi.edu';
+$conf['ns']['local']   = 'http://provenanceweb.org';
 
 
 $conf['mirror_external_uris'] = false;
@@ -15,5 +15,5 @@ $conf['mirror_external_uris'] = false;
 // Variables in  can be used to store user info.
 // For examples, 'title' will be used in the header.
 // (You can forget about all conventions and use your own as well)
-$lodspk['title'] = 'LODSPeaKr';
+$lodspk['title'] = 'Provenance Web';
 ?>
