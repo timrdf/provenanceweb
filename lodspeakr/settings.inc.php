@@ -37,4 +37,6 @@ $conf['components']['services'][] = '/home/provenanceweb/opt/prizms/lodspeakrs/t
 // For examples, 'title' will be used in the header.
 // (You can forget about all conventions and use your own as well)
 $lodspk['title'] = 'LODSPeaKr';
+
+$lodspk.maxResults = 3500;
 ?>
