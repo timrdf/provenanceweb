@@ -38,5 +38,5 @@ $conf['components']['services'][] = '/home/provenanceweb/opt/prizms/lodspeakrs/t
 // (You can forget about all conventions and use your own as well)
 $lodspk['title'] = 'LODSPeaKr';
 
-$lodspk.maxResults = 3500;
+$lodspk['maxResults'] = 3500;
 ?>
