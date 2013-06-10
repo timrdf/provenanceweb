@@ -2,15 +2,15 @@
 
 $conf['endpoint']['local'] = 'http://provenanceweb.org/sparql';
 $conf['home'] = '/var/www/lodspeakr/';
-#$conf['basedir'] = 'http://provenanceweb.tw.rpi.edu/';
+//$conf['basedir'] = 'http://provenanceweb.tw.rpi.edu/';
 $conf['basedir'] = 'http://provenanceweb.org/';
 $conf['debug'] = false;
 
-#$conf['ns']['local']   = 'http://provenanceweb.tw.rpi.edu';
+//$conf['ns']['local']   = 'http://provenanceweb.tw.rpi.edu';
 $conf['ns']['local']   = 'http://provenanceweb.org/';
 
 
-#$conf['mirror_external_uris'] = true;
+$conf['mirror_external_uris'] = true;
 
 // Cherry-picked components (see https://github.com/alangrafu/lodspeakr/wiki/Reuse-cherry-picked-components-from-other-repositories)
 $conf['components']['types'][] = '/home/provenanceweb/opt/prizms/lodspeakrs/twc-healthdata/lodspeakr/components/types/conv:VersionedDataset';
