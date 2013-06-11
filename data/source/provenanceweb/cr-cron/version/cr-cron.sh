@@ -280,7 +280,7 @@ pushd $conversion_root &> /dev/null
          -n "$CSV2RDF4LOD_PUBLISH_DATAHUB_METADATA_OUR_BUBBLE_ID" && \
          `which cr-linksets.sh` ]]; then
       echo "pwd: `pwd`"                                                                        >> $log
-      cr-linksets.sh
+      cr-linksets.sh                                                                      2>&1 >> $log
    else
       echo "   ERROR: Failed to invoke:"                                                       >> $log
       echo "      CSV2RDF4LOD_BASE_URI:              $CSV2RDF4LOD_BASE_URI"                    >> $log
@@ -321,7 +321,7 @@ pushd $conversion_root &> /dev/null
          -n "$CSV2RDF4LOD_PUBLISH_DATAHUB_METADATA_OUR_BUBBLE_ID" && \
          `which cr-pingback.sh` ]]; then
       echo "pwd: `pwd`"                                                                       >> $log
-      cr-pingback.sh
+      cr-pingback.sh                                                                     2>&1 >> $log
    else
       echo "   ERROR: Failed to invoke:"                                                      >> $log
       echo "      CSV2RDF4LOD_BASE_URI:                               $CSV2RDF4LOD_BASE_URI"                 >> $log
@@ -329,7 +329,7 @@ pushd $conversion_root &> /dev/null
       echo "      CSV2RDF4LOD_PUBLISH_DATAHUB_METADATA_OUR_BUBBLE_ID: $CSV2RDF4LOD_PUBLISH_DATAHUB_METADATA_OUR_BUBBLE_ID" >> $log
       echo "                                   path: `which cr-pingback.sh`"                  >> $log
    fi
-   echo "END cron cr-sitemap.sh `date`"                                                       >> $log
+   echo "END cron cr-pingback.sh `date`"                                                       >> $log
    echo                                                                                       >> $log
 
 
