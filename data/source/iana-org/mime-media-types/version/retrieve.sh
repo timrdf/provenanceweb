@@ -16,7 +16,7 @@ fi
 
 TEMP="_"`basename $0``date +%s`_$$.tmp
 
-if [[ $# -lt 1 || "$1" == "--help" ]]; then
+if [[ "$1" == "--help" ]]; then
    echo "usage: `basename $0` version-identifier [URL]"
    echo
    echo "   version-identifier: conversion:version_identifier for the VersionedDataset to create (use cr:auto for default)"
@@ -26,10 +26,10 @@ fi
 
 
 #-#-#-#-#-#-#-#-#
-version="$1"
+version="${1-"cr:auto"}"
 version_reason=""
-url="$2"
-if [[ "$1" == "cr:auto" && ${#url} -gt 0 ]]; then
+url="${2-"http://www.iana.org/assignments/media-types"}"
+if [[ "$version" == "cr:auto" && ${#url} -gt 0 ]]; then
    version=`urldate.sh $url`
    #echo "Attempting to use URL modification date to name version: $version"
    version_reason="(URL's modification date)"
@@ -72,7 +72,7 @@ if [ "$1" == "--delimiter" -a $# -ge 2 ]; then
    shift 2
 fi
 
-url='http://www.iana.org/assignments/media-types'
+#url='http://www.iana.org/assignments/media-types'
 echo "INFO url       : $url"
 echo "INFO version   : $version $version_reason"
 echo
