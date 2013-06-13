@@ -16,7 +16,7 @@ fi
 
 TEMP="_"`basename $0``date +%s`_$$.tmp
 
-if [[ $# -lt 1 || "$1" == "--help" ]]; then
+if [[ "$1" == "--help" ]]; then
    echo "usage: `basename $0` version-identifier"
    echo "   version-identifier: conversion:version_identifier for the VersionedDataset to create (use cr:auto for default)"
    exit 1
@@ -24,9 +24,9 @@ fi
 
 
 #-#-#-#-#-#-#-#-#
-version="$1"
+version="${1-"cr:auto"}"
 version_reason=""
-if [[ "$1" == "cr:auto" ]]; then
+if [[ "$version" == "cr:auto" ]]; then
 
    # Set up shop if it's not done already.
    if [ ! -e ../../pronom-droid-signatures/version/latest/automatic/droid-signature-files.csv ]; then
@@ -51,7 +51,7 @@ if [[ "$1" == "cr:auto" ]]; then
                pushd source &> /dev/null
                   tidy.sh droid-signature-files.htm 2>&1> /dev/null
                popd &> /dev/null
-               saxon.sh ../../src/signature-files.xsl a a source/droid-signature-files.htm.tidy > automatic/droid-signature-files.csv
+               saxon.sh ../../src/html2csv.xsl a a source/droid-signature-files.htm.tidy > automatic/droid-signature-files.csv
             popd &> /dev/null
             ln -s $latest latest
          popd &> /dev/null
