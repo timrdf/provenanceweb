@@ -964,3 +964,7 @@ export DG_RETRIEVAL_CONVERT_RAW="true"
 export DG_RETRIEVAL_CONVERT_RAW="false" 
 
 # End of CSV2RDF4LOD_ variables
+export CSV2RDF4LOD_PUBLISH_VC_REPOSITORY="git@github.com:timrdf/provenanceweb.git"
+export DATAFAQS_BASE_URI="http://provenanceweb.org"
+export DATAFAQS_PROVENANCE_CODE_RAW_BASE="https://raw.github.com/timrdf/DataFAQs/master"
+export DATAFAQS_PROVENANCE_CODE_PAGE_BASE="https://github.com/timrdf/DataFAQs/blob/master"

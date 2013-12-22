@@ -14,3 +14,4 @@ export CSV2RDF4LOD_HOME="/home/provenanceweb/opt/prizms/repos/csv2rdf4lod-automa
 export CSV2RDF4LOD_PUBLISH_VIRTUOSO="true"
 export CSV2RDF4LOD_PUBLISH_SUBSET_SAMPLES="true"
 export JENAROOT=/home/provenanceweb/opt/apache-jena-2.10.0
+export DATAFAQS_HOME="/home/provenanceweb/opt/prizms/repos/DataFAQs"
