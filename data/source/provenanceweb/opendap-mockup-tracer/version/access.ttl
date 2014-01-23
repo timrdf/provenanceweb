@@ -1,0 +1,25 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix conversion: <http://purl.org/twc/vocab/conversion/> .
+@prefix dcat:       <http://www.w3.org/ns/dcat#> .
+@prefix void:       <http://rdfs.org/ns/void#> .
+@prefix nfo:        <http://www.semanticdesktop.org/ontologies/nfo/#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix datafaqs:   <http://purl.org/twc/vocab/datafaqs#> .
+@prefix :           <http://provenanceweb.org/id/> .
+
+<http://provenanceweb.org/source/provenanceweb/dataset/opendap-mockup-tracer>
+   a void:Dataset, dcat:Dataset;
+   conversion:source_identifier  "provenanceweb";
+   conversion:dataset_identifier "opendap-mockup-tracer";
+   prov:wasDerivedFrom :download_55436387bcf809431831389aa848a474;
+.
+
+:download_55436387bcf809431831389aa848a474
+   a dcat:Distribution;
+   dcat:downloadURL <http://opendap.rpi.edu/opendap/hyrax/ESG/b30.004.cam2.h0.DTV_zav.0100-01_cat_0119-12.nc?date[0:1:239],ndcur[0:1:239],time[0:1:239]>;
+.
+
+<dataset/55436387bcf809431831389aa848a474>
+   a dcat:Dataset;
+   dcat:distribution :download_55436387bcf809431831389aa848a474;
+.
