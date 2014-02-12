@@ -1,0 +1,26 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix conversion: <http://purl.org/twc/vocab/conversion/> .
+@prefix dcat:       <http://www.w3.org/ns/dcat#> .
+@prefix void:       <http://rdfs.org/ns/void#> .
+@prefix nfo:        <http://www.semanticdesktop.org/ontologies/nfo/#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix datafaqs:   <http://purl.org/twc/vocab/datafaqs#> .
+@prefix :           <http://provenanceweb.org/id/> .
+
+<http://provenanceweb.org/source/provenanceweb/dataset/licenses>
+   a void:Dataset, dcat:Dataset;
+   conversion:source_identifier  "provenanceweb";
+   conversion:dataset_identifier "licenses";
+   prov:wasDerivedFrom :download_cebad0ba34bdd02db3d428a572d99b89;
+.
+
+:download_cebad0ba34bdd02db3d428a572d99b89
+   a dcat:Distribution;
+   a nfo:Spreadsheet;
+   dcat:downloadURL <https://docs.google.com/spreadsheet/ccc?key=0ArTeDpS4-nUDdFNaSXNuc0xrS1U2VkNHQzdSOFBXTkE#gid=0>;
+.
+
+<dataset/cebad0ba34bdd02db3d428a572d99b89>
+   a dcat:Dataset;
+   dcat:distribution :download_cebad0ba34bdd02db3d428a572d99b89;
+.
