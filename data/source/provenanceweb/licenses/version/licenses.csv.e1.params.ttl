@@ -35,6 +35,8 @@
 @prefix foaf:          <http://xmlns.com/foaf/0.1/> .
 @prefix ov:            <http://open.vocab.org/terms/> .
 @prefix conversion:    <http://purl.org/twc/vocab/conversion/> .
+@prefix cc:            <http://creativecommons.org/ns#> .
+@prefix prv:           <http://purl.org/net/provenance/ns#> .
 @prefix :              <http://provenanceweb.org/source/provenanceweb/dataset/licenses/version/2014-Feb-12/params/enhancement/1/> .
 
 
@@ -72,14 +74,14 @@
       #conversion:delimits_cell "|";   # pipe
       #conversion:delimits_cell ",";   # comma
 
-      #conversion:interpret [
-      #   conversion:symbol        "";
-      #   conversion:interpretation conversion:null; 
-      #];
-      #conversion:enhance [
-      #   conversion:domain_template "thing_[r]";
-      #   conversion:domain_name     "Thing";
-      #];
+      conversion:interpret [
+         conversion:symbol        "";
+         conversion:interpretation conversion:null; 
+      ];
+      conversion:enhance [
+         conversion:domain_template "[/]id/license/[#1]";
+         conversion:domain_name     <http://creativecommons.org/ns#License>;
+      ];
       #conversion:enhance [
       #   conversion:class_name "Thing";
       #   conversion:subclass_of <http://purl.org/...>;
@@ -89,60 +91,56 @@
          ov:csvHeader       "Name";
          #conversion:bundled_by [ ov:csvCol 1 ];
          #conversion:label   "Name";
-         #conversion:equivalent_property dcterms:identifier;
+         conversion:equivalent_property dcterms:identifier;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         conversion:range   rdfs:Literal;
       ];
       conversion:enhance [
          ov:csvCol          2;
          ov:csvHeader       "Title";
          #conversion:bundled_by [ ov:csvCol 1 ];
          #conversion:label   "Title";
-         #conversion:equivalent_property dcterms:identifier;
+         conversion:equivalent_property dcterms:title;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         conversion:range   rdfs:Literal;
       ];
       conversion:enhance [
          ov:csvCol          3;
          ov:csvHeader       "Definition";
          #conversion:bundled_by [ ov:csvCol 1 ];
          #conversion:label   "Definition";
-         #conversion:equivalent_property dcterms:identifier;
+         conversion:equivalent_property prv:serializedBy;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
          #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         conversion:range   rdfs:Resource;
       ];
       conversion:enhance [
          ov:csvCol          4;
          ov:csvHeader       "Subs";
          #conversion:bundled_by [ ov:csvCol 1 ];
          #conversion:label   "Subs";
-         #conversion:equivalent_property dcterms:identifier;
+         conversion:equivalent_property skos:narrower;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         conversion:delimits_object ",\\s*";
+         conversion:range_template "[/]id/license/[.]";
+         conversion:range   <http://creativecommons.org/ns#License>;
+         conversion:range   rdfs:Resource;
       ];
       conversion:enhance [
          ov:csvCol          5;
          ov:csvHeader       "Alternate Labels";
          #conversion:bundled_by [ ov:csvCol 1 ];
          #conversion:label   "Alternate Labels";
-         #conversion:equivalent_property dcterms:identifier;
+         conversion:equivalent_property skos:altLabel;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
+         conversion:delimits_object ",\\s*";
          #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         conversion:range   rdfs:Literal;
       ];
       #conversion:enhance [
       #   ov:csvRow 3,4,5;
