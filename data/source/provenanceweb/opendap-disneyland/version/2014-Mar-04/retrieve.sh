@@ -19,5 +19,5 @@ pushd source
    if [ ! -e CA_OrangeCo_2011_000402.txt.cdl.nc ]; then
       pcurl.sh 'http://opendap.tw.rpi.edu/tomcat/opendap/ipaw2014/disneyland/CA_OrangeCo_2011_000402.txt.cdl.nc'
    fi
-   cr-droid.sh source/CA_OrangeCo_2011_000402.txt.cdl.nc > source/cr-droid.ttl
 popd
+cr-droid.sh source/CA_OrangeCo_2011_000402.txt.cdl.nc > source/cr-droid.ttl
