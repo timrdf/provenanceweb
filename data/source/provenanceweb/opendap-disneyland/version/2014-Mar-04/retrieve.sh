@@ -12,6 +12,11 @@
 #3>      <https://github.com/timrdf/csv2rdf4lod-automation/wiki/tic-turtle-in-comments>;
 #3> .
 
+if [[ "$1" == 'clean' ]]; then
+   rm source/CA_OrangeCo_2011_000402.txt.cdl.nc source/cr-droid.tt
+   exit
+fi
+
 mkdir -p source automatic
 
 echo source/CA_OrangeCo_2011_000402.txt.cdl.nc
