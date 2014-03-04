@@ -12,4 +12,6 @@ if [ ! -e automatic/CA_OrangeCo_2011_000402.png ]; then
    # Pretend to render the LiDAR
    curl http://provenanceweb.org/CA_OrangeCo_2011_000402.png > automatic/CA_OrangeCo_2011_000402.png
    cr-droid.sh automatic/CA_OrangeCo_2011_000402.png > automatic/cr-droid.ttl
+   justify.sh source/CA_OrangeCo_2011_000402.txt.cdl.nc automatic/CA_OrangeCo_2011_000402.png render
+
 fi
