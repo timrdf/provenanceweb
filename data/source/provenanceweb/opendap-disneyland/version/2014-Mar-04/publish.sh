@@ -6,5 +6,5 @@
 #3> .
 #
 
-cr-publish.sh source/cr-droid.ttl source/CA_OrangeCo_2011_000402.txt.cdl.nc source/CA_OrangeCo_2011_000402.txt.cdl.nc.prov.ttl \
-   automatic/CA_OrangeCo_2011_000402.png automatic/CA_OrangeCo_2011_000402.png.prov.ttl automatic/cr-droid.ttl
+cr-publish.sh source/CA_OrangeCo_2011_000402.txt.cdl.nc source/CA_OrangeCo_2011_000402.txt.cdl.nc.prov.ttl source/cr-droid.ttl \
+              automatic/CA_OrangeCo_2011_000402.png automatic/CA_OrangeCo_2011_000402.png.prov.ttl automatic/cr-droid.ttl
