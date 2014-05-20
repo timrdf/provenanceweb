@@ -1,0 +1,27 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix conversion: <http://purl.org/twc/vocab/conversion/> .
+@prefix dcat:       <http://www.w3.org/ns/dcat#> .
+@prefix void:       <http://rdfs.org/ns/void#> .
+@prefix nfo:        <http://www.semanticdesktop.org/ontologies/nfo/#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix datafaqs:   <http://purl.org/twc/vocab/datafaqs#> .
+@prefix :           <http://provenanceweb.org/id/> .
+@base               <http://provenanceweb.org/id/> .
+
+<http://provenanceweb.org/source/purl-org-twc/dataset/between-the-edges>
+   a void:Dataset, dcat:Dataset;
+   conversion:source_identifier  "purl-org-twc";
+   conversion:dataset_identifier "between-the-edges";
+   conversion:identifier         "8701efd243475b769446c4b0fe7169db";
+   prov:wasDerivedFrom <distribution/b3a72677db0d1b3bf310a8dae06d2d13>;
+.
+
+<distribution/b3a72677db0d1b3bf310a8dae06d2d13>
+   a dcat:Distribution;
+   dcat:downloadURL <http://purl.org/twc/vocab/between-the-edges/>;
+.
+
+<dataset/b3a72677db0d1b3bf310a8dae06d2d13>
+   a dcat:Dataset;
+   dcat:distribution <distribution/b3a72677db0d1b3bf310a8dae06d2d13>;
+.
