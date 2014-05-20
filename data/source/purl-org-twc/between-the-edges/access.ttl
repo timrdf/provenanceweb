@@ -18,7 +18,7 @@
 
 <distribution/b3a72677db0d1b3bf310a8dae06d2d13>
    a dcat:Distribution;
-   dcat:downloadURL <http://purl.org/twc/vocab/between-the-edges/>;
+   dcat:downloadURL <http://purl.org/twc/vocab/between-the-edges>;
 .
 
 <dataset/b3a72677db0d1b3bf310a8dae06d2d13>
