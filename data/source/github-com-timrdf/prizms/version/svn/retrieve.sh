@@ -12,11 +12,15 @@
 #3>      <https://github.com/timrdf/csv2rdf4lod-automation/wiki/tic-turtle-in-comments>;
 #3> .
 
-echo 'not done'
-
-exit 1
 mkdir -p source && pushd source
-   #svn checkout https://github.com/timrdf/prizms
-   pushd source/prizms
-   svn log -v --xml > ../prizms.xml
+   if [[ ! -e prizms ]]; then
+      svn checkout https://github.com/timrdf/prizms
+   else
+      pushd prizms
+         svn update
+      popd
+   fi
+   pushd prizms
+      svn log -v --xml > ../prizms.xml
+   popd
 popd
