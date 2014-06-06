@@ -14,13 +14,16 @@
 
 url='https://dvcs.w3.org/hg/prov'
 base=`basename $url`
-mkdir source && pushd source
-   if [[ -e $base ]]; then
+mkdir -p source && pushd source
+   if [[ ! -e $base ]]; then
+      hg clone $url
+   else
       pushd $base
          hg pull
          hg update
       popd
-   else
-      hg clone $url
    fi
+   pushd $base
+      hg2prov.sh | tee ../prov.prov.ttl
+   popd
 popd
