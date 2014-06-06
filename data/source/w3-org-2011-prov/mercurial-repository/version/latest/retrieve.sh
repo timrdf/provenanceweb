@@ -12,10 +12,13 @@
 #3>      <https://github.com/timrdf/csv2rdf4lod-automation/wiki/tic-turtle-in-comments>;
 #3> .
 
+sdv=`cr-sdv.sh --attribute-value`
+
 url='https://dvcs.w3.org/hg/prov'
 base=`basename $url`
 mkdir -p source && pushd source
    if [[ ! -e $base ]]; then
+      echo HI $url
       hg clone $url
    else
       pushd $base
@@ -24,6 +27,6 @@ mkdir -p source && pushd source
       popd
    fi
    pushd $base
-      hg2prov.sh | tee ../prov.prov.ttl
+      hg2prov.sh $sdv | tee ../prov.prov.ttl
    popd
 popd
