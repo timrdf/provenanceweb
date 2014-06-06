@@ -1,0 +1,95 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix sioc:       <http://rdfs.org/sioc/ns#> .
+@prefix pmlp:       <http://inference-web.org/2.0/pml-provenance.owl#> .
+@prefix oboro:      <http://obofoundry.org/ro/ro.owl#> .
+@prefix oprov:      <http://openprovenance.org/ontology#> .
+@prefix hartigprov: <http://purl.org/net/provenance/ns#> .
+@prefix nfo:        <http://www.semanticdesktop.org/ontologies/nfo/#> .
+@prefix pmlj:       <http://inference-web.org/2.0/pml-justification.owl#> .
+@prefix conv:       <http://purl.org/twc/vocab/conversion/> .
+@prefix irw: <http://www.ontologydesignpatterns.org/ont/web/irw.owl#> .
+@prefix pml:        <http://provenanceweb.org/ns/pml#> .
+
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix sioc:    <http://rdfs.org/sioc/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+
+<http://purl.org/twc/id/machine/lebot/MacBookPro6_2>
+   a prov:Entity;
+.
+<http://tw.rpi.edu/instances/TimLebo>
+  a prov:Agent, foaf:Agent;
+  foaf:holdsAccount <http://purl.org/twc/id/machine/lebot/MacBookPro6_2#lebot>;
+.
+<http://purl.org/twc/id/machine/lebot/MacBookPro6_2#lebot>
+   a foaf:OnlineAccount, prov:Agent;
+   foaf:accountName "lebot";
+   dcterms:isPartOf <http://purl.org/twc/id/machine/lebot/MacBookPro6_2>;
+   sioc:account_of      <http://tw.rpi.edu/instances/TimLebo>;
+   prov:actedOnBehalfOf <http://tw.rpi.edu/instances/TimLebo>;
+.
+
+<b.ttl>
+   a pmlp:Information, prov:Entity;
+   pmlp:hasModificationDateTime "2014-06-06T09:05:25-04:00"^^xsd:dateTime;
+   pml:wasGeneratedWithPlan <http://dbpedia.org/resource/Hypertext_Transfer_Protocol#f30cad18-3dd1-4d61-b317-ca8d0659fcb0>;
+.
+<http://dbpedia.org/resource/Hypertext_Transfer_Protocol#f30cad18-3dd1-4d61-b317-ca8d0659fcb0> a prov:Plan;
+  dcterms:date "2014-06-06T09:06:05-04:00"^^xsd:dateTime;
+  prov:specializationOf <http://dbpedia.org/resource/Hypertext_Transfer_Protocol>;
+.
+<http://dbpedia.org/resource/Hypertext_Transfer_Protocol> a prov:Plan .
+<b.ttl>
+   a nfo:FileDataObject;
+   nfo:fileName "b.ttl";
+   nfo:hasHash <md5_eca0c184a2458e312e3f618475be9347_time_1402059965>;
+.
+<md5_eca0c184a2458e312e3f618475be9347_time_1402059965>
+   a nfo:FileHash; 
+   dcterms:date      "2014-06-06T09:06:05-04:00"^^xsd:dateTime;
+   nfo:hashAlgorithm "md5";
+   nfo:hashValue     "eca0c184a2458e312e3f618475be9347";
+.
+
+<b.ttl> prov:wasDerivedFrom <http://provenanceweb.org/sparql?default-graph-uri=&query=construct+%7B+%3Fs+%3Fp+%3Fo+%7D%0D%0Awhere+%7B%0D%0A++graph+%3Chttp%3A%2F%2Fprovenanceweb.org%2Fgraph-prov%2Fdvcs.w3.org%2Fhg%2Fprov%2Fraw-file%2F3a2127f3da8b%2Fontology%2FProvenanceOntology.owl%3E+%7B%0D%0A%3Fs+%3Fp+%3Fo%0D%0A++%7D%0D%0A%7D&format=text%2Frdf%2Bn3&timeout=0&debug=on> .
+<http://provenanceweb.org/sparql?default-graph-uri=&query=construct+%7B+%3Fs+%3Fp+%3Fo+%7D%0D%0Awhere+%7B%0D%0A++graph+%3Chttp%3A%2F%2Fprovenanceweb.org%2Fgraph-prov%2Fdvcs.w3.org%2Fhg%2Fprov%2Fraw-file%2F3a2127f3da8b%2Fontology%2FProvenanceOntology.owl%3E+%7B%0D%0A%3Fs+%3Fp+%3Fo%0D%0A++%7D%0D%0A%7D&format=text%2Frdf%2Bn3&timeout=0&debug=on>
+   a sioc:Item, irw:WebResource, prov:Entity;
+.
+<b.ttl> prov:wasDerivedFrom <http://provenanceweb.org/sparql?default-graph-uri=&query=construct+%7B+%3Fs+%3Fp+%3Fo+%7D%0D%0Awhere+%7B%0D%0A++graph+%3Chttp%3A%2F%2Fprovenanceweb.org%2Fgraph-prov%2Fdvcs.w3.org%2Fhg%2Fprov%2Fraw-file%2F3a2127f3da8b%2Fontology%2FProvenanceOntology.owl%3E+%7B%0D%0A%3Fs+%3Fp+%3Fo%0D%0A++%7D%0D%0A%7D&format=text%2Frdf%2Bn3&timeout=0&debug=on> .
+
+<nodeSet/f30cad18-3dd1-4d61-b317-ca8d0659fcb0>
+   a pmlj:NodeSet;
+   pmlj:hasConclusion <b.ttl>;
+   pmlj:isConsequentOf <inferenceStep/f30cad18-3dd1-4d61-b317-ca8d0659fcb0>;
+.
+<inferenceStep/f30cad18-3dd1-4d61-b317-ca8d0659fcb0>
+   a pmlj:InferenceStep;
+   pmlj:hasIndex 0;
+   rdfs:seeAlso <nodeSetf30cad18-3dd1-4d61-b317-ca8d0659fcb0_antecedent>;
+#   pmlj:hasAntecedentList ( <nodeSetf30cad18-3dd1-4d61-b317-ca8d0659fcb0_antecedent> );
+   pmlj:hasInferenceEngine <http://dbpedia.org/resource/Hypertext_Transfer_Protocol#f30cad18-3dd1-4d61-b317-ca8d0659fcb0>;
+   pmlj:hasInferenceRule   <http://dbpedia.org/resource/Hypertext_Transfer_Protocol>;
+   oboro:has_agent          <http://purl.org/twc/id/machine/lebot/MacBookPro6_2#lebot>;
+   hartigprov:involvedActor <http://purl.org/twc/id/machine/lebot/MacBookPro6_2#lebot>;
+.
+
+<wasControlled/f30cad18-3dd1-4d61-b317-ca8d0659fcb0>
+   a oprov:WasControlledBy;
+   oprov:cause  <http://purl.org/twc/id/machine/lebot/MacBookPro6_2#lebot>;
+   oprov:effect <inferenceStep/f30cad18-3dd1-4d61-b317-ca8d0659fcb0>;
+   oprov:endTime "2014-06-06T09:06:05-04:00"^^xsd:dateTime;
+.
+<nodeSetf30cad18-3dd1-4d61-b317-ca8d0659fcb0_antecedent>
+   a pmlj:NodeSet;
+   pmlj:hasConclusion <http://provenanceweb.org/sparql?default-graph-uri=&query=construct+%7B+%3Fs+%3Fp+%3Fo+%7D%0D%0Awhere+%7B%0D%0A++graph+%3Chttp%3A%2F%2Fprovenanceweb.org%2Fgraph-prov%2Fdvcs.w3.org%2Fhg%2Fprov%2Fraw-file%2F3a2127f3da8b%2Fontology%2FProvenanceOntology.owl%3E+%7B%0D%0A%3Fs+%3Fp+%3Fo%0D%0A++%7D%0D%0A%7D&format=text%2Frdf%2Bn3&timeout=0&debug=on>;
+.
+
+<http://dbpedia.org/resource/Hypertext_Transfer_Protocol#f30cad18-3dd1-4d61-b317-ca8d0659fcb0>
+   a pmlp:InferenceEngine, prov:Entity;
+   dcterms:identifier "http://dbpedia.org/resource/Hypertext_Transfer_Protocol#f30cad18-3dd1-4d61-b317-ca8d0659fcb0";
+.
+
