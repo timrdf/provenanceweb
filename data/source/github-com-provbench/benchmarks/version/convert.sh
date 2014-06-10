@@ -6,15 +6,18 @@
 #3> .
 #
 
+plan='https://github.com/timrdf/provenanceweb/blob/master/data/source/github-com-timrdf/provenanceweb/version/git/convert.sh'
+
 echo "@prefix doap:    <http://usefulinc.com/ns/doap#>." > automatic/repos.csv.ttl
 echo "@prefix dcterms: <http://purl.org/dc/terms/>."    >> automatic/repos.csv.ttl
 echo                                                    >> automatic/repos.csv.ttl
 
+dataset=`cr-dataset-uri.sh --uri`
 for repo in `cat automatic/repos.csv`; do
         hash=`md5.sh -qs $repos`
-        echo "<$hash> a doap:GitRepository;"            >> automatic/repos.csv.ttl
-        echo "        doap:location <$repo>;"           >> automatic/repos.csv.ttl
-        echo "."                                        >> automatic/repos.csv.ttl
-        echo "<$hash> dcterms:isReferencedBy <$repo>."  >> automatic/repos.csv.ttl
+        echo "<$CSV2RDF4LOD_BASE_URI/id/repo/location/$hash> a doap:GitRepository;" >> automatic/repos.csv.ttl
+        echo "        doap:location <$repo>;"                                       >> automatic/repos.csv.ttl
+        echo "."                                                                    >> automatic/repos.csv.ttl
+        echo "<$hash> dcterms:isReferencedBy <$dataset>."                           >> automatic/repos.csv.ttl
 done
-justify.sh automatic/repos.csv automatic/repos.csv.ttl TODO
+justify.sh automatic/repos.csv automatic/repos.csv.ttl $plan
