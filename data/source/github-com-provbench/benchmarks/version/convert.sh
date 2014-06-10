@@ -10,11 +10,11 @@ plan='https://github.com/timrdf/provenanceweb/blob/master/data/source/github-com
 
 echo "@prefix doap:    <http://usefulinc.com/ns/doap#>." > automatic/repos.csv.ttl
 echo "@prefix dcterms: <http://purl.org/dc/terms/>."    >> automatic/repos.csv.ttl
-echo                                                    >> automatic/repos.csv.ttl
 
 dataset=`cr-dataset-uri.sh --uri`
 for repo in `cat automatic/repos.csv`; do
         hash=`md5.sh -qs $repos`
+	echo
         echo "<$CSV2RDF4LOD_BASE_URI/id/repo/location/$hash> a doap:GitRepository;" >> automatic/repos.csv.ttl
         echo "        doap:location <$repo>;"                                       >> automatic/repos.csv.ttl
         echo "."                                                                    >> automatic/repos.csv.ttl
