@@ -1,0 +1,40 @@
+@prefix fullResult: <&serialization=PROV-O#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix result: <http://localhost/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+result:commit-bae7f49de04be34c07e75be867231369806b15c6	a	prov:Activity ;
+		prov:endedAtTime	"2014-06-10T13:44:53.000Z"^^xsd:dateTime ;
+		prov:qualifiedAssociation	[ a prov:Association ; prov:agent result:user-Tim-L ; prov:hadRole "author, committer"@en ] ;
+		prov:qualifiedUsage	[ a prov:Usage ; prov:entity result:file-README-md_commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3 ; prov:atTime "2014-06-10T13:44:53.000Z"^^xsd:dateTime ] ;
+		prov:startedAtTime	"2014-06-10T13:44:53.000Z"^^xsd:dateTime ;
+		prov:used	result:file-README-md_commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3 ;
+		prov:wasAssociatedWith	result:user-Tim-L ;
+		prov:wasInformedBy	result:commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3 ;
+		rdfs:label	"Update README.md"@en .
+result:commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3	a	prov:Activity ;
+		prov:endedAtTime	"2014-06-10T13:44:11.000Z"^^xsd:dateTime ;
+		prov:qualifiedAssociation	[ a prov:Association ; prov:agent result:user-Tim-L ; prov:hadRole "author, committer"@en ] ;
+		prov:startedAtTime	"2014-06-10T13:44:11.000Z"^^xsd:dateTime ;
+		prov:wasAssociatedWith	result:user-Tim-L ;
+		rdfs:label	"Create README.md"@en .
+result:file-README-md	a	prov:Entity ;
+		rdfs:label	"README.md"@en .
+result:file-README-md_commit-bae7f49de04be34c07e75be867231369806b15c6	a	prov:Entity ;
+		prov:qualifiedAttribution	[ a prov:Attribution ; prov:agent result:user-Tim-L ; a "authorship"@en ] ;
+		prov:qualifiedDerivation	[ a prov:Derivation ; prov:entity result:file-README-md_commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3 ; prov:hadGeneration result:file-README-md_commit-bae7f49de04be34c07e75be867231369806b15c6_gen ; prov:hadUsage result:file-README-md_commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3_commit-bae7f49de04be34c07e75be867231369806b15c6_use ; prov:hadActivity result:commit-bae7f49de04be34c07e75be867231369806b15c6 ] ;
+		prov:qualifiedGeneration	[ a prov:Generation ; prov:activity result:commit-bae7f49de04be34c07e75be867231369806b15c6 ; prov:atTime "2014-06-10T13:44:53.000Z"^^xsd:dateTime ] ;
+		prov:specializationOf	result:file-README-md ;
+		prov:wasAttributedTo	result:user-Tim-L ;
+		prov:wasDerivedFrom	result:file-README-md_commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3 ;
+		prov:wasGeneratedBy	result:commit-bae7f49de04be34c07e75be867231369806b15c6 .
+result:file-README-md_commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3	a	prov:Entity ;
+		prov:qualifiedAttribution	[ a prov:Attribution ; prov:agent result:user-Tim-L ; a "authorship"@en ] ;
+		prov:qualifiedGeneration	[ a prov:Generation ; prov:activity result:commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3 ; prov:atTime "2014-06-10T13:44:11.000Z"^^xsd:dateTime ] ;
+		prov:specializationOf	result:file-README-md ;
+		prov:wasAttributedTo	result:user-Tim-L ;
+		prov:wasGeneratedBy	result:commit-e441bbcbdca41450490d4222b8e26f31ec3fe4c3 .
+result:provenance	a	prov:Bundle ;
+		prov:alternateOf	fullResult:provenance .
+result:user-Tim-L	a	prov:Agent ;
+		rdfs:label	"Tim L"@en .
