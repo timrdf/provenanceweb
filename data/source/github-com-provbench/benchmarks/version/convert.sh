@@ -14,10 +14,11 @@ echo "@prefix dcterms: <http://purl.org/dc/terms/>."    >> automatic/repos.csv.t
 dataset=`cr-dataset-uri.sh --uri`
 for repo in `cat automatic/repos.csv`; do
         hash=`md5.sh -qs $repos`
-	echo                                                                        >> automatic/repos.csv.ttl
-        echo "<$CSV2RDF4LOD_BASE_URI/id/repo/location/$hash> a doap:GitRepository;" >> automatic/repos.csv.ttl
-        echo "        doap:location <$repo>;"                                       >> automatic/repos.csv.ttl
-        echo "."                                                                    >> automatic/repos.csv.ttl
-        echo "<$hash> dcterms:isReferencedBy <$dataset>."                           >> automatic/repos.csv.ttl
+	echo                                                   >> automatic/repos.csv.ttl
+        echo "<$CSV2RDF4LOD_BASE_URI/id/repo/location/$hash>"  >> automatic/repos.csv.ttl
+	echo "   a doap:GitRepository;"                        >> automatic/repos.csv.ttl
+        echo "   doap:location <$repo>;"                       >> automatic/repos.csv.ttl
+        echo "."                                               >> automatic/repos.csv.ttl
+        echo "<$hash> dcterms:isReferencedBy <$dataset>."      >> automatic/repos.csv.ttl
 done
 justify.sh automatic/repos.csv automatic/repos.csv.ttl $plan
