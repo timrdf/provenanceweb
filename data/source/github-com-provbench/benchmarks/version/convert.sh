@@ -6,8 +6,8 @@
 #3> .
 #
 
-echo "@prefix doap: <http://usefulinc.com/ns/doap#>."
-echo "@prefix dcterms: <http://purl.org/dc/terms/>."
+echo "@prefix doap: <http://usefulinc.com/ns/doap#>."   > automatic/repos.csv.ttl
+echo "@prefix dcterms: <http://purl.org/dc/terms/>."   >> automatic/repos.csv.ttl
 echo
 
 for repo in `cat automatic/repos.csv`; do
