@@ -6,6 +6,10 @@
 #3> .
 #
 
+echo "@prefix doap: <http://usefulinc.com/ns/doap#>."
+echo "@prefix dcterms: <http://purl.org/dc/terms/>."
+echo
+
 for repo in `cat automatic/repos.csv`; do
         hash=`md5.sh -qs $repos`
         echo "<$hash> a doap:GitRepository;"           >> automatic/repos.csv.ttl
