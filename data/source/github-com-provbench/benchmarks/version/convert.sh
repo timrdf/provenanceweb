@@ -18,7 +18,7 @@ for repo in `cat automatic/repos.csv`; do
         echo "<$CSV2RDF4LOD_BASE_URI/id/repo/location/$hash>"  >> automatic/repos.csv.ttl
 	echo "   a doap:GitRepository;"                        >> automatic/repos.csv.ttl
         echo "   doap:location <$repo>;"                       >> automatic/repos.csv.ttl
+        echo "   dcterms:isReferencedBy <$dataset>;"           >> automatic/repos.csv.ttl
         echo "."                                               >> automatic/repos.csv.ttl
-        echo "<$hash> dcterms:isReferencedBy <$dataset>."      >> automatic/repos.csv.ttl
 done
 justify.sh automatic/repos.csv automatic/repos.csv.ttl $plan
