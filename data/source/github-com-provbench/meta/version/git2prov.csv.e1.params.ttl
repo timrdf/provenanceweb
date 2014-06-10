@@ -35,6 +35,10 @@
 @prefix foaf:          <http://xmlns.com/foaf/0.1/> .
 @prefix ov:            <http://open.vocab.org/terms/> .
 @prefix conversion:    <http://purl.org/twc/vocab/conversion/> .
+@prefix pvcs:          <http://purl.org/twc/vocab/pvcs#>.
+@prefix prv:           <http://purl.org/net/provenance/ns#>.
+@prefix nfo:           <http://www.semanticdesktop.org/ontologies/nfo/#>.
+@prefix nif:           <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>.
 @prefix :              <http://provenanceweb.org/source/github-com-provbench/dataset/meta/version/git/params/enhancement/1/> .
 
 
@@ -72,59 +76,80 @@
       #conversion:delimits_cell "|";   # pipe
       #conversion:delimits_cell ",";   # comma
 
-      #conversion:interpret [
-      #   conversion:symbol        "";
-      #   conversion:interpretation conversion:null; 
-      #];
-      #conversion:enhance [
-      #   conversion:domain_template "thing_[r]";
-      #   conversion:domain_name     "Thing";
-      #];
+      conversion:interpret [
+         conversion:symbol        "";
+         conversion:interpretation conversion:null; 
+      ];
+      conversion:enhance [
+         conversion:domain_template "[/sdv]commit/[#2]";
+         conversion:domain_name     pvcs:Commit;
+      ];
       #conversion:enhance [
       #   conversion:class_name "Thing";
       #   conversion:subclass_of <http://purl.org/...>;
       #];
       conversion:enhance [
          ov:csvCol          1;
-         ov:csvHeader       "commit hash";
+         ov:csvHeader       "file";
+         a conversion:URISafe;
          #conversion:bundled_by [ ov:csvCol 1 ];
          #conversion:label   "commit hash";
-         #conversion:equivalent_property dcterms:identifier;
+         conversion:equivalent_property prov:generated;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         conversion:range_template  "[/sd]revision/[#2]/[.]";
+         conversion:range   rdfs:Resource;
+         conversion:range_name  prov:Entity;
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sd]revision/[#2]/[#1]";
+         conversion:predicate prov:specializationOf;
+         conversion:object    "[/sd][#1]";
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sd]revision/[#2]/[#1]";
+         conversion:predicate rdf:type;
+         conversion:object    prv:Immutable, nif:String, prov:Entity;
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sd]revision/[#2]/[#1]";
+         conversion:predicate rdf:type;
+         conversion:object    prov:Entity;
       ];
       conversion:enhance [
          ov:csvCol          2;
-         ov:csvHeader       "parent hash";
+         ov:csvHeader       "commit hash";
          #conversion:bundled_by [ ov:csvCol 1 ];
-         #conversion:label   "parent hash";
-         #conversion:equivalent_property dcterms:identifier;
+         #conversion:label   "commit hash";
+         conversion:equivalent_property dcterms:identifier;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         conversion:range   rdfs:Literal;
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sdv]commit/[#2]";
+         conversion:predicate rdf:type;
+         conversion:object    prov:Activity; # TODO: pvcs:Commit.
       ];
       conversion:enhance [
          ov:csvCol          3;
-         ov:csvHeader       "author name";
+         ov:csvHeader       "parent hash";
          #conversion:bundled_by [ ov:csvCol 1 ];
-         #conversion:label   "author name";
+         #conversion:label   "parent hash";
+         conversion:equivalent_property prov:wasInformedBy;
          #conversion:equivalent_property dcterms:identifier;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         conversion:range_template  "[/sdv]commit/[#3]";
+         conversion:range   rdfs:Resource;
+         conversion:range_name  pvcs:Commit;
       ];
       conversion:enhance [
          ov:csvCol          4;
-         ov:csvHeader       "author date";
+         ov:csvHeader       "author name";
          #conversion:bundled_by [ ov:csvCol 1 ];
-         #conversion:label   "author date";
+         #conversion:label   "author name";
+         conversion:equivalent_property conversion:null;
          #conversion:equivalent_property dcterms:identifier;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
@@ -134,21 +159,24 @@
       ];
       conversion:enhance [
          ov:csvCol          5;
-         ov:csvHeader       "committer name";
+         ov:csvHeader       "author date";
+         a conversion:Omitted;
          #conversion:bundled_by [ ov:csvCol 1 ];
-         #conversion:label   "committer name";
-         #conversion:equivalent_property dcterms:identifier;
+         #conversion:label   "author date";
+         conversion:eg   "2014-06-10 15:44:53 +020";
+         conversion:pattern "YYYY-MM-dd HH:mm:ss ZZZZ";
+         #conversion:equivalent_property prov:endedAtTime;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         #conversion:range   xsd:dateTime;
+         conversion:range   rdfs:Literal;
       ];
       conversion:enhance [
          ov:csvCol          6;
-         ov:csvHeader       "committer date";
+         ov:csvHeader       "committer name";
          #conversion:bundled_by [ ov:csvCol 1 ];
-         #conversion:label   "committer date";
+         #conversion:label   "committer name";
+         conversion:equivalent_property conversion:null;
          #conversion:equivalent_property dcterms:identifier;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
@@ -158,15 +186,48 @@
       ];
       conversion:enhance [
          ov:csvCol          7;
-         ov:csvHeader       "subject (i.e. commit msg)";
-         #conversion:bundled_by [ ov:csvCol 1 ];
-         #conversion:label   "subject (i.e. commit msg)";
-         #conversion:equivalent_property dcterms:identifier;
+         ov:csvHeader       "committer date";
+         conversion:bundled_by [ ov:csvCol 2 ];
+         #conversion:label   "committer date";
+         conversion:eg   "2014-06-10 15:44:53 +020";
+         conversion:pattern "YYYY-MM-dd HH:mm:ss ZZZZ";
+         conversion:equivalent_property prov:endedAtTime;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
-         #conversion:range_name  "Thing";
+         #conversion:range   xsd:dateTime;
+         conversion:range   rdfs:Literal;
+      ];
+      conversion:enhance [
+         ov:csvCol         8;
+         ov:csvHeader       "subject (i.e. commit msg)";
+         conversion:bundled_by [ ov:csvCol 4 ];
+         #conversion:label   "subject (i.e. commit msg)";
+         conversion:equivalent_property rdfs:comment;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         conversion:range   rdfs:Literal;
+      ];
+      conversion:enhance [
+         ov:csvCol         9;
+         ov:csvHeader       "action type";
+         conversion:bundled_by [ ov:csvCol 4 ];
+         conversion:eg   "M", "A";
+         conversion:label   "action type";
+         #conversion:equivalent_property rdfs:comment;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         conversion:range   rdfs:Resource;
+      ];
+
+      conversion:enhance [
+         conversion:subject  "[/sdv]commit/[#2]";
+         conversion:predicate prov:wasAttributedTo;
+         conversion:object    "[/sd]id/developer/[#4]";
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sdv]commit/[#2]";
+         conversion:predicate prov:wasAttributedTo;
+         conversion:object    "[/sd]id/developer/[#6]";
       ];
       #conversion:enhance [
       #   ov:csvRow 3,4,5;
