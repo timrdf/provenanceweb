@@ -1,0 +1,348 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix hendler: <http://www.cs.rpi.edu/~hendler/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix bk: <http://www.provbook.org/is/#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix images: <http://www.provbook.org/imgs/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix provapi: <http://www.provbook.org/provapi/documents/> .
+@prefix provbook: <http://www.provbook.org/> .
+
+
+provbook:Luc a prov:Agent ;
+	foaf:name "Luc Moreau"^^xsd:string .
+
+provbook:Paul a prov:Agent ;
+	foaf:name "Paul Groth"^^xsd:string .
+
+provbook:provenance a prov:Entity , prov:Bundle ;
+	prov:wasAttributedTo provbook:Luc , provbook:Paul .
+
+provbook:thebook a prov:Entity .
+
+_:blank1 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+provbook:thebook prov:qualifiedAttribution _:blank1 .
+
+_:blank1 a prov:Creator .
+
+_:blank2 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+provbook:thebook prov:qualifiedAttribution _:blank2 .
+
+_:blank2 a prov:Creator .
+
+bk:writeBook a prov:Activity ;
+	prov:wasAssociatedWith provbook:Luc , provbook:Paul .
+
+provbook:thebook prov:wasGeneratedBy bk:writeBook .
+
+provapi:d000 a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d000.jpg> a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d000.svg> a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d000.jpg> prov:specializationOf provapi:d000 .
+
+<http://www.provbook.org/provapi/documents/d000.svg> prov:specializationOf provapi:d000 .
+
+_:blank3 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+provapi:d000 prov:qualifiedAttribution _:blank3 .
+
+_:blank3 a prov:Creator .
+
+_:blank4 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+provapi:d000 prov:qualifiedAttribution _:blank4 .
+
+_:blank4 a prov:Creator .
+
+_:blank5 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/provapi/documents/d000.jpg> prov:qualifiedAttribution _:blank5 .
+
+_:blank5 a prov:Creator .
+
+_:blank6 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/provapi/documents/d000.jpg> prov:qualifiedAttribution _:blank6 .
+
+_:blank6 a prov:Creator .
+
+_:blank7 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/provapi/documents/d000.svg> prov:qualifiedAttribution _:blank7 .
+
+_:blank7 a prov:Creator .
+
+_:blank8 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/provapi/documents/d000.svg> prov:qualifiedAttribution _:blank8 .
+
+_:blank8 a prov:Creator .
+
+provapi:d001 a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d001.jpg> a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d001.svg> a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d001.jpg> prov:specializationOf provapi:d001 .
+
+<http://www.provbook.org/provapi/documents/d001.svg> prov:specializationOf provapi:d001 .
+
+_:blank9 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+provapi:d001 prov:qualifiedAttribution _:blank9 .
+
+_:blank9 a prov:Creator .
+
+_:blank10 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+provapi:d001 prov:qualifiedAttribution _:blank10 .
+
+_:blank10 a prov:Creator .
+
+_:blank11 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/provapi/documents/d001.jpg> prov:qualifiedAttribution _:blank11 .
+
+_:blank11 a prov:Creator .
+
+_:blank12 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/provapi/documents/d001.jpg> prov:qualifiedAttribution _:blank12 .
+
+_:blank12 a prov:Creator .
+
+_:blank13 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/provapi/documents/d001.svg> prov:qualifiedAttribution _:blank13 .
+
+_:blank13 a prov:Creator .
+
+_:blank14 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/provapi/documents/d001.svg> prov:qualifiedAttribution _:blank14 .
+
+_:blank14 a prov:Creator .
+
+provapi:d002 a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d002.jpg> a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d002.svg> a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d002.jpg> prov:specializationOf provapi:d002 .
+
+<http://www.provbook.org/provapi/documents/d002.svg> prov:specializationOf provapi:d002 .
+
+_:blank15 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+provapi:d002 prov:qualifiedAttribution _:blank15 .
+
+_:blank15 a prov:Creator .
+
+_:blank16 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+provapi:d002 prov:qualifiedAttribution _:blank16 .
+
+_:blank16 a prov:Creator .
+
+_:blank17 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/provapi/documents/d002.jpg> prov:qualifiedAttribution _:blank17 .
+
+_:blank17 a prov:Creator .
+
+_:blank18 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/provapi/documents/d002.jpg> prov:qualifiedAttribution _:blank18 .
+
+_:blank18 a prov:Creator .
+
+_:blank19 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/provapi/documents/d002.svg> prov:qualifiedAttribution _:blank19 .
+
+_:blank19 a prov:Creator .
+
+_:blank20 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/provapi/documents/d002.svg> prov:qualifiedAttribution _:blank20 .
+
+_:blank20 a prov:Creator .
+
+provapi:d003 a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d003.jpg> a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d003.svg> a prov:Entity ;
+	prov:wasGeneratedBy bk:writeBook .
+
+<http://www.provbook.org/provapi/documents/d003.jpg> prov:specializationOf provapi:d003 .
+
+<http://www.provbook.org/provapi/documents/d003.svg> prov:specializationOf provapi:d003 .
+
+_:blank21 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+provapi:d003 prov:qualifiedAttribution _:blank21 .
+
+_:blank21 a prov:Creator .
+
+_:blank22 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+provapi:d003 prov:qualifiedAttribution _:blank22 .
+
+_:blank22 a prov:Creator .
+
+_:blank23 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/provapi/documents/d003.jpg> prov:qualifiedAttribution _:blank23 .
+
+_:blank23 a prov:Creator .
+
+_:blank24 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/provapi/documents/d003.jpg> prov:qualifiedAttribution _:blank24 .
+
+_:blank24 a prov:Creator .
+
+_:blank25 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/provapi/documents/d003.svg> prov:qualifiedAttribution _:blank25 .
+
+_:blank25 a prov:Creator .
+
+_:blank26 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/provapi/documents/d003.svg> prov:qualifiedAttribution _:blank26 .
+
+_:blank26 a prov:Creator .
+
+_:blank27 a prov:Derivation ;
+	prov:entity provapi:d000 .
+
+provbook:thebook prov:qualifiedDerivation _:blank27 .
+
+_:blank27 a dct:references .
+
+_:blank28 a prov:Derivation ;
+	prov:entity provapi:d001 .
+
+provbook:thebook prov:qualifiedDerivation _:blank28 .
+
+_:blank28 a dct:references .
+
+_:blank29 a prov:Derivation ;
+	prov:entity provapi:d002 .
+
+provbook:thebook prov:qualifiedDerivation _:blank29 .
+
+_:blank29 a dct:references .
+
+_:blank30 a prov:Derivation ;
+	prov:entity provapi:d003 .
+
+provbook:thebook prov:qualifiedDerivation _:blank30 .
+
+_:blank30 a dct:references .
+
+provbook:a-little-provenance-goes-a-long-way a prov:Entity ;
+	prov:value "A little provenance goes a long way"^^xsd:string .
+
+_:blank31 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+provbook:a-little-provenance-goes-a-long-way prov:qualifiedAttribution _:blank31 .
+
+_:blank31 a prov:Creator .
+
+_:blank32 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+provbook:a-little-provenance-goes-a-long-way prov:qualifiedAttribution _:blank32 .
+
+_:blank32 a prov:Creator .
+
+<http://www.cs.rpi.edu/~hendler/LittleSemanticsWeb.html> a prov:Entity .
+
+provbook:a-little-provenance-goes-a-long-way prov:wasDerivedFrom <http://www.cs.rpi.edu/~hendler/LittleSemanticsWeb.html> .
+
+provbook:thebook prov:wasDerivedFrom provbook:a-little-provenance-goes-a-long-way .
+
+<http://www.provbook.org/imgs/bookstack.JPG> a prov:Entity .
+
+<http://www.provbook.org/imgs/bookcover.jpg> a prov:Entity .
+
+<http://www.provbook.org/imgs/bookstack.JPG> prov:wasDerivedFrom provbook:thebook .
+
+<http://www.provbook.org/imgs/bookcover.jpg> prov:wasDerivedFrom provbook:thebook .
+
+_:blank33 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/imgs/bookcover.jpg> prov:qualifiedAttribution _:blank33 .
+
+_:blank33 a prov:Creator .
+
+_:blank34 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/imgs/bookcover.jpg> prov:qualifiedAttribution _:blank34 .
+
+_:blank34 a prov:Creator .
+
+_:blank35 a prov:Attribution ;
+	prov:agent provbook:Luc .
+
+<http://www.provbook.org/imgs/bookstack.JPG> prov:qualifiedAttribution _:blank35 .
+
+_:blank35 a prov:Creator .
+
+_:blank36 a prov:Attribution ;
+	prov:agent provbook:Paul .
+
+<http://www.provbook.org/imgs/bookstack.JPG> prov:qualifiedAttribution _:blank36 .
+
+_:blank36 a prov:Creator .
