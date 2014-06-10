@@ -1,0 +1,29 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix conversion: <http://purl.org/twc/vocab/conversion/> .
+@prefix dcat:       <http://www.w3.org/ns/dcat#> .
+@prefix void:       <http://rdfs.org/ns/void#> .
+@prefix nfo:        <http://www.semanticdesktop.org/ontologies/nfo/#> .
+@prefix doap:       <http://usefulinc.com/ns/doap#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix datafaqs:   <http://purl.org/twc/vocab/datafaqs#> .
+@prefix :           <https://github.com/timrdf/csv2rdf4lod-automation/wiki/CSV2RDF4LOD_BASE_URI#/id/> .
+@base               <https://github.com/timrdf/csv2rdf4lod-automation/wiki/CSV2RDF4LOD_BASE_URI#/id/> .
+
+<https://github.com/timrdf/csv2rdf4lod-automation/wiki/CSV2RDF4LOD_BASE_URI#/source/github-com-provbench/dataset/meta/version/git>
+   a void:Dataset, dcat:Dataset;
+   conversion:source_identifier  "github-com-provbench";
+   conversion:dataset_identifier "meta";
+   conversion:identifier         "41de90e27b8b00d9ec45f30d22525d2a";
+   prov:wasDerivedFrom <distribution/c6602bd3cbf95a63c9e3066097b05825>;
+.
+
+<distribution/c6602bd3cbf95a63c9e3066097b05825>
+   a dcat:Distribution;
+   a doap:GitRepository;
+   dcat:downloadURL <https://github.com/provbench/meta.git>;
+.
+
+<dataset/c6602bd3cbf95a63c9e3066097b05825>
+   a dcat:Dataset;
+   dcat:distribution <distribution/c6602bd3cbf95a63c9e3066097b05825>;
+.
