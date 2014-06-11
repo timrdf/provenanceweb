@@ -1,0 +1,239 @@
+@prefix rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix todo:          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:           <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:           <http://www.w3.org/2002/07/owl#> .
+@prefix vann:          <http://purl.org/vocab/vann/> .
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:          <http://www.w3.org/2006/time#> .
+@prefix wgs:           <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geonames:      <http://www.geonames.org/ontology#> .
+@prefix geonamesid:    <http://sws.geonames.org/> .
+@prefix govtrackusgov: <http://www.rdfabout.com/rdf/usgov/geo/us/> .
+@prefix dbpedia:       <http://dbpedia.org/resource/> .
+@prefix dbpediaprop:   <http://dbpedia.org/property/> .
+@prefix dbpediaowl:    <http://dbpedia.org/ontology/> .
+@prefix con:           <http://www.w3.org/2000/10/swap/pim/contact#> .
+@prefix muo:           <http://purl.oclc.org/NET/muo/muo#> .
+@prefix vs:            <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix frbr:          <http://purl.org/vocab/frbr/core#> .
+@prefix bibo:          <http://purl.org/ontology/bibo/> .
+@prefix prov:          <http://www.w3.org/ns/prov#> .
+@prefix doap:          <http://usefulinc.com/ns/doap#> .
+@prefix nfo:           <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#> .
+@prefix sio:           <http://semanticscience.org/resource/> .
+@prefix org:           <http://www.w3.org/ns/org#> .
+@prefix vsr:           <http://purl.org/twc/vocab/vsr#> .
+@prefix dcat:          <http://www.w3.org/ns/dcat#> .
+@prefix qb:            <http://purl.org/linked-data/cube#> .
+@prefix pml:           <http://provenanceweb.org/ns/pml#> .
+@prefix dgtwc:         <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#> .
+@prefix dcterms:       <http://purl.org/dc/terms/> .
+@prefix void:          <http://rdfs.org/ns/void#> .
+@prefix scovo:         <http://purl.org/NET/scovo#> .
+@prefix sioc:          <http://rdfs.org/sioc/ns#> .
+@prefix foaf:          <http://xmlns.com/foaf/0.1/> .
+@prefix ov:            <http://open.vocab.org/terms/> .
+@prefix conversion:    <http://purl.org/twc/vocab/conversion/> .
+@prefix pvcs:          <http://purl.org/twc/vocab/pvcs#>.
+@prefix prv:           <http://purl.org/net/provenance/ns#>.
+@prefix nfo:           <http://www.semanticdesktop.org/ontologies/nfo/#>.
+@prefix nif:           <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>.
+@prefix :              <http://provenanceweb.org/source/github-com-provbench/dataset/meta/version/git/params/enhancement/1/> .
+
+
+#:a_bundle
+#   a conversion:ImplicitBundle;
+#   conversion:property_name "a_property"; # Can also be a URI, e.g. dcterms:title.
+#   conversion:name_template "[/sd]company/[#2]/[r]";
+#   #conversion:type_name     "My Class";   # Can also be a URI, e.g. foaf:Person.
+#.
+
+<http://provenanceweb.org/source/github-com-provbench/dataset/meta/version/git/conversion/enhancement/1>
+   a conversion:LayerDataset, void:Dataset;
+
+   conversion:base_uri           "http://provenanceweb.org"^^xsd:anyURI;
+   conversion:source_identifier  "github-com-provbench";
+   conversion:dataset_identifier "meta";
+   conversion:version_identifier "git";
+   conversion:enhancement_identifier "1";
+
+   conversion:conversion_process [
+      a conversion:EnhancementConversionProcess;
+      conversion:enhancement_identifier "1";
+
+      dcterms:creator [ a foaf:OnlineAccount; foaf:accountName "lebot" ];
+      dcterms:created "2014-06-10T21:32:33+00:00"^^xsd:dateTime;
+
+
+      #conversion:enhance [
+      #   ov:csvRow 2;
+      #   a conversion:DataStartRow;
+      #];
+
+      conversion:delimits_cell ",";
+      #conversion:delimits_cell "	"; # tab
+      #conversion:delimits_cell "|";   # pipe
+      #conversion:delimits_cell ",";   # comma
+
+      conversion:interpret [
+         conversion:symbol        "";
+         conversion:interpretation conversion:null; 
+      ];
+      conversion:enhance [
+         conversion:domain_template "[/sdv]commit/[#2]";
+         conversion:domain_name     pvcs:Commit;
+      ];
+      #conversion:enhance [
+      #   conversion:class_name "Thing";
+      #   conversion:subclass_of <http://purl.org/...>;
+      #];
+      conversion:enhance [
+         ov:csvCol          1;
+         ov:csvHeader       "file";
+         a conversion:URISafe;
+         #conversion:bundled_by [ ov:csvCol 1 ];
+         #conversion:label   "commit hash";
+         conversion:equivalent_property prov:generated;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         conversion:range_template  "[/sd]revision/[#2]/[.]";
+         conversion:range   rdfs:Resource;
+         conversion:range_name  prov:Entity;
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sd]revision/[#2]/[#1]";
+         conversion:predicate prov:specializationOf;
+         conversion:object    "[/sd][#1]";
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sd]revision/[#2]/[#1]";
+         conversion:predicate rdf:type;
+         conversion:object    prv:Immutable, nif:String, prov:Entity;
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sd]revision/[#2]/[#1]";
+         conversion:predicate rdf:type;
+         conversion:object    prov:Entity;
+      ];
+      conversion:enhance [
+         ov:csvCol          2;
+         ov:csvHeader       "commit hash";
+         #conversion:bundled_by [ ov:csvCol 1 ];
+         #conversion:label   "commit hash";
+         conversion:equivalent_property dcterms:identifier;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         conversion:range   rdfs:Literal;
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sdv]commit/[#2]";
+         conversion:predicate rdf:type;
+         conversion:object    prov:Activity; # TODO: pvcs:Commit.
+      ];
+      conversion:enhance [
+         ov:csvCol          3;
+         ov:csvHeader       "parent hash";
+         #conversion:bundled_by [ ov:csvCol 1 ];
+         #conversion:label   "parent hash";
+         conversion:equivalent_property prov:wasInformedBy;
+         #conversion:equivalent_property dcterms:identifier;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         conversion:range_template  "[/sdv]commit/[#3]";
+         conversion:range   rdfs:Resource;
+         conversion:range_name  pvcs:Commit;
+      ];
+      conversion:enhance [
+         ov:csvCol          4;
+         ov:csvHeader       "author name";
+         #conversion:bundled_by [ ov:csvCol 1 ];
+         #conversion:label   "author name";
+         conversion:equivalent_property conversion:null;
+         #conversion:equivalent_property dcterms:identifier;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         #conversion:range_template  "[/sd]thing[.]";
+         conversion:range   todo:Literal;
+         #conversion:range_name  "Thing";
+      ];
+      conversion:enhance [
+         ov:csvCol          5;
+         ov:csvHeader       "author date";
+         a conversion:Omitted;
+         #conversion:bundled_by [ ov:csvCol 1 ];
+         #conversion:label   "author date";
+         conversion:eg   "2014-06-10 15:44:53 +020";
+         conversion:pattern "YYYY-MM-dd HH:mm:ss ZZZZ";
+         #conversion:equivalent_property prov:endedAtTime;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         #conversion:range   xsd:dateTime;
+         conversion:range   rdfs:Literal;
+      ];
+      conversion:enhance [
+         ov:csvCol          6;
+         ov:csvHeader       "committer name";
+         #conversion:bundled_by [ ov:csvCol 1 ];
+         #conversion:label   "committer name";
+         conversion:equivalent_property conversion:null;
+         #conversion:equivalent_property dcterms:identifier;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         #conversion:range_template  "[/sd]thing[.]";
+         conversion:range   todo:Literal;
+         #conversion:range_name  "Thing";
+      ];
+      conversion:enhance [
+         ov:csvCol          7;
+         ov:csvHeader       "committer date";
+         conversion:bundled_by [ ov:csvCol 2 ];
+         #conversion:label   "committer date";
+         conversion:eg   "2014-06-10 15:44:53 +020";
+         conversion:pattern "YYYY-MM-dd HH:mm:ss ZZZZ";
+         conversion:equivalent_property prov:endedAtTime;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         #conversion:range   xsd:dateTime;
+         conversion:range   rdfs:Literal;
+      ];
+      conversion:enhance [
+         ov:csvCol         8;
+         ov:csvHeader       "subject (i.e. commit msg)";
+         conversion:bundled_by [ ov:csvCol 4 ];
+         #conversion:label   "subject (i.e. commit msg)";
+         conversion:equivalent_property rdfs:comment;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         conversion:range   rdfs:Literal;
+      ];
+      conversion:enhance [
+         ov:csvCol         9;
+         ov:csvHeader       "action type";
+         conversion:bundled_by [ ov:csvCol 4 ];
+         conversion:eg   "M", "A";
+         conversion:label   "action type";
+         #conversion:equivalent_property rdfs:comment;
+         #conversion:subproperty_of      dcterms:identifier;
+         conversion:comment "";
+         conversion:range   rdfs:Resource;
+      ];
+
+      conversion:enhance [
+         conversion:subject  "[/sdv]commit/[#2]";
+         conversion:predicate prov:wasAttributedTo;
+         conversion:object    "[/sd]id/developer/[#4]";
+      ];
+      conversion:enhance [
+         conversion:subject  "[/sdv]commit/[#2]";
+         conversion:predicate prov:wasAttributedTo;
+         conversion:object    "[/sd]id/developer/[#6]";
+      ];
+      #conversion:enhance [
+      #   ov:csvRow 3,4,5;
+      #   conversion:fromRow 3;
+      #   conversion:toRow   5;
+      #   a conversion:ExampleResource;
+      #];
+   ];
+.
