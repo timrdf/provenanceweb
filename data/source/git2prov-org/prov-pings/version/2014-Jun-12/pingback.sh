@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+#3> <> prov:specializationOf <https://github.com/timrdf/provenanceweb/blob/master/data/source/git2prov-org/prov-pings/version/2014-Jun-12/pingback.sh>;
+#3>    rdfs:seeAlso          <https://github.com/timrdf/provenanceweb/wiki/IPAW-2014>;
+#3> .
 
 derivation='https://provenance.ecs.soton.ac.uk/picaso/uris/2655'
 pingback_uri='http://git2prov.org:8902/prov-pings/pingback?target=http://opendap.tw.rpi.edu/source/us/dataset/ipaw-2014-paper-provenance/version/latest/pub'
