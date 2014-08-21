@@ -1,4 +1,8 @@
-<!-- This processes a DROID/PRONOM format description XML, which looks like:
+<!-- 
+#3> <> prov:specializationOf <>;
+#3> .
+
+This processes a DROID/PRONOM format description XML, which looks like:
      (from http://www.nationalarchives.gov.uk/pronom/fmt/319 - "Save as XML")
 
    <PRONOM-Report xmlns="http://pronom.nationalarchives.gov.uk">
@@ -13,6 +17,12 @@
          <FormatFamilies>
          </FormatFamilies>
          <FormatTypes>GIS</FormatTypes>
+
+   ...
+         <FileFormatIdentifier>
+           <Identifier>text/csv</Identifier>
+           <IdentifierType>MIME</IdentifierType>
+         </FileFormatIdentifier>
 -->
 
 <!--
@@ -88,6 +98,10 @@ if( pronom:ne(pronom:FormatVersion) gt 0 ) then concat('   pronom:version ',$DQ,
 
             <xsl:for-each-group select="pronom:Extension" group-by=".">
                <xsl:value-of select="concat('   pronom:extension ',$DQ,.,$DQ,';',$NL)"/>
+            </xsl:for-each-group>
+
+            <xsl:for-each-group select="pronom:ExternalSignature[pronom:SignatureType = 'File extension']/pronom:Signature" group-by=".">
+               <xsl:value-of select="concat('   pronom:hasExtension ',$DQ,.,$DQ,';',$NL)"/>
             </xsl:for-each-group>
 
             <xsl:for-each-group select="pronom:HasPriorityOverFileFormatID" group-by=".">

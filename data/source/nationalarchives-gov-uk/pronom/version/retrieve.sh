@@ -164,6 +164,12 @@ if [ ! -d $version ]; then
       #echo automatic/pronom-formats.csv
       #saxon.sh ../../src/pronom-formats.xsl a a -v accept=text        -in source/DROID*.xml > automatic/pronom-formats.csv
 
+      # TODO: The extension is falling on the floor ATM.
+      #        <FileFormat ID="45" MIMEType="text/csv"
+      #            Name="Comma Separated Values" PUID="x-fmt/18">
+      #            <Extension>csv</Extension>
+      #        </FileFormat>
+
       echo automatic/retrieve-format-xml.sh
       saxon.sh ../../src/pronom-format-ids.xsl a a source/DROID*.xml | awk -f ../../src/retrieve-xml.awk > automatic/retrieve-format-xml.sh
       #echo automatic/retrieve-format-csv.sh                                                               
