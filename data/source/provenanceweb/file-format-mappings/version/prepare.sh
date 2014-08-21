@@ -27,3 +27,5 @@ perl -pi -e 's/\r\n/\n/' manual/file-format-mappings.csv
 perl -pi -e 's/\r/\n/g'  manual/file-format-mappings.csv
 
 cr-create-conversion-trigger.sh -w manual/file-format-mappings.csv
+
+echo convert-file-format-mappings.sh
