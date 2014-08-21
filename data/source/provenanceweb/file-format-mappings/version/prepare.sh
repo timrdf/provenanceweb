@@ -23,5 +23,8 @@
 # When this script is invoked, the conversion cockpit is the current working directory.
 #
 
-# perl -pi -e 's/\r\n/\n/' 
-# perl -pi -e 's/\r/\n/g'  
+perl -pi -e 's/\r\n/\n/' manual/file-format-mappings.csv
+perl -pi -e 's/\r/\n/g'  manual/file-format-mappings.csv
+
+cr-create-conversion-trigger.sh -w manual/file-format-mappings.csv
+
