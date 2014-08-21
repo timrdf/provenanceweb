@@ -114,11 +114,19 @@
          a conversion:TemplatedTopicsEnhancement;
 
          conversion:topic [
-            conversion:name "[/][#1]", "[/][#2]";
+            conversion:name "[/][#1]";
             a dcterms:FileFormat;
             prov:alternateOf [ 
                a dcterms:FileFormat;
-               conversion:name "[/][#2]", "[/][#1]";
+               conversion:name "[/][#2]";
+            ];
+         ];
+         conversion:topic [
+            conversion:name "[/][#2]";
+            a dcterms:FileFormat;
+            prov:alternateOf [ 
+               a dcterms:FileFormat;
+               conversion:name "[/][#1]";
             ];
          ];
       ];
