@@ -77,7 +77,7 @@
       #   conversion:interpretation conversion:null; 
       #];
       #conversion:enhance [
-      #   conversion:domain_template "thing_[r]";
+      #   conversion:domain_template "[/][#1]";
       #   conversion:domain_name     "Thing";
       #];
       #conversion:enhance [
@@ -87,26 +87,40 @@
       conversion:enhance [
          ov:csvCol          1;
          ov:csvHeader       "IANA";
+         a conversion:Omitted;
          #conversion:bundled_by [ ov:csvCol 1 ];
          #conversion:label   "IANA";
-         #conversion:equivalent_property dcterms:identifier;
+         conversion:equivalent_property prov:alternateOf;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
          #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
+         #conversion:range   dcterms:FileFormat;
          #conversion:range_name  "Thing";
       ];
       conversion:enhance [
          ov:csvCol          2;
          ov:csvHeader       "PRONOM";
+         a conversion:Omitted;
          #conversion:bundled_by [ ov:csvCol 1 ];
          #conversion:label   "PRONOM";
-         #conversion:equivalent_property dcterms:identifier;
+         conversion:equivalent_property prov:alternateOf;
          #conversion:subproperty_of      dcterms:identifier;
          conversion:comment "";
-         #conversion:range_template  "[/sd]thing[.]";
-         conversion:range   todo:Literal;
+         #conversion:range_template  "[/][.]";
+         #conversion:range   dcterms:FileFormat;
          #conversion:range_name  "Thing";
+      ];
+      conversion:enhance [
+         a conversion:TemplatedTopicsEnhancement;
+
+         conversion:topic [
+            conversion:name "[/][#1]", "[/][#2]";
+            a dcterms:FileFormat;
+            prov:alternateOf [ 
+               a dcterms:FileFormat;
+               conversion:name "[/][#2]", "[/][#1]";
+            ];
+         ];
       ];
       #conversion:enhance [
       #   ov:csvRow 3,4,5;
