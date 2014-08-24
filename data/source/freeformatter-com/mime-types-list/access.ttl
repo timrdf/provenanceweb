@@ -1,0 +1,28 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix conversion: <http://purl.org/twc/vocab/conversion/> .
+@prefix dcat:       <http://www.w3.org/ns/dcat#> .
+@prefix void:       <http://rdfs.org/ns/void#> .
+@prefix nfo:        <http://www.semanticdesktop.org/ontologies/nfo/#> .
+@prefix doap:       <http://usefulinc.com/ns/doap#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix datafaqs:   <http://purl.org/twc/vocab/datafaqs#> .
+@prefix :           <http://provenanceweb.org/id/> .
+@base               <http://provenanceweb.org/id/> .
+
+<http://provenanceweb.org/source/freeformatter-com/dataset/mime-types-list>
+   a void:Dataset, dcat:Dataset;
+   conversion:source_identifier  "freeformatter-com";
+   conversion:dataset_identifier "mime-types-list";
+   conversion:identifier         "b460717cc676f56d914b7ca4e3660e42";
+   prov:wasDerivedFrom <distribution/802b9d619cfce37a5fe0a222c23878d7>;
+.
+
+<distribution/802b9d619cfce37a5fe0a222c23878d7>
+   a dcat:Distribution;
+   dcat:downloadURL <http://www.freeformatter.com/mime-types-list.html>;
+.
+
+<dataset/802b9d619cfce37a5fe0a222c23878d7>
+   a dcat:Dataset;
+   dcat:distribution <distribution/802b9d619cfce37a5fe0a222c23878d7>;
+.
