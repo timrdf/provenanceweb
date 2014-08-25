@@ -58,10 +58,15 @@ if [[ "$version" == "cr:auto" ]]; then
       popd &> /dev/null
    fi
 
-   url=`grep xml ../../pronom-droid-signatures/version/latest/automatic/droid-signature-files.csv | tail -1`
+   url=`grep DROID_SignatureFile ../../pronom-droid-signatures/version/latest/automatic/droid-signature-files.csv | tail -1`
    version=`echo $url | sed 's/^.*DROID_SignatureFile_//;s/.xml//'` 
    version_reason="(Latest version listed in pronom-droid-signatures)"
 fi
+
+url='http://www.nationalarchives.gov.uk/documents/DROID_SignatureFile_V77.xml'
+sig_file=`basename $url`
+version=`echo $url | sed 's/^.*DROID_SignatureFile_//;s/.xml//'` 
+version_reason="(Latest version listed in pronom-droid-signatures)"
 
 #if [ ${#version} -ne 11 -a "$1" == "cr:auto" ]; then # 11!?
 #   version=`cr-make-today-version.sh 2>&1 | head -1`
@@ -104,80 +109,33 @@ if [ ! -d $version ]; then
    # Go into the conversion cockpit of the new version.
    pushd $version &> /dev/null
 
-      if [ ! -e manual ]; then
-         mkdir manual
-      fi
-
-#      if [ -e ../2manual.sh ]; then
-#         # Leave it up to the global 2manual.sh to populate manual/ from any of the source/
-#         # 2manual.sh should also create the cr-create-convert.sh.
-#         chmod +x ../2manual.sh
-#         ../2manual.sh
-#      elif [ `find source -name "*.xls" | wc -l` -gt 0 ]; then
-#         # Tackle the xls files
-#         for xls in `find source -name "*.xls"`; do
-#            touch .__CSV2RDF4LOD_csvify
-#            sleep 1
-#            xls2csv.sh -w -od source $xls
-#            for csv in `find source -type f -newer .__CSV2RDF4LOD_csvify`; do
-#               #justify.sh $xls $csv xls2csv_`md5.sh \`which justify.sh\`` # TODO: excessive? justify.sh needs to know the broad class rule/engine
-#                                                             # TODO: shouldn't you be hashing the xls2csv.sh, not justify.sh?
-#               justify.sh $xls $csv csv2rdf4lod_xls2csv_sh
-#            done
-#         done
-#
-#         files=`find source/ -name "*.csv"`
-#         cr-create-conversion-trigger.sh  -w --comment-character "$commentCharacter" --header-line $headerLine --delimiter ${delimiter:-","} $files
-#      else
-#         # Take a best guess as to what data files should be converted.
-#         # Include source/* that is newer than source/.__CSV2RDF4LOD_retrieval and NOT *.pml.ttl
-#
-#         files=`find source -newer source/.__CSV2RDF4LOD_retrieval -type f | grep -v "pml.ttl$"`
-#
-#         validfiles=""
-#         for name in $files; do
-#            if [ -e $name ]; then
-#               validfiles="$validfiles $name"
-#            fi
-#         done
-#         if [ ${#validfiles} -gt 0 ]; then
-#            # Create a conversion trigger for the files obtained during retrieval.
-#            cr-create-conversion-trigger.sh -w --comment-character "$commentCharacter" --header-line $headerLine --delimiter ${delimiter:-","} $validfiles
-#         else
-#            echo
-#            echo "ERROR: No valid files found when retrieving `cr-dataset-id.sh`; not creating conversion trigger."
-#         fi
-#      fi
-
-      if [ ! -e automatic ]; then
-         mkdir automatic
-      fi
+      mkdir -p manual automatic
 
       echo                                                                                                               
-      if [ ${#CSV2RDF4LOD_BASE_URI_OVERRIDE} -gt 0 ]; then
-         base=$CSV2RDF4LOD_BASE_URI_OVERRIDE
-      else
-         base=$CSV2RDF4LOD_BASE_URI
-      fi
-      #echo automatic/pronom-formats.ttl
-      #saxon.sh ../../src/pronom-formats.xsl a a -v accept=text/turtle BASE_URI=$base -in source/DROID*.xml > automatic/pronom-formats.ttl
-      #echo automatic/pronom-formats.csv
-      #saxon.sh ../../src/pronom-formats.xsl a a -v accept=text        -in source/DROID*.xml > automatic/pronom-formats.csv
-
+      base=${CSV2RDF4LOD_BASE_URI_OVERRIDE:-$CSV2RDF4LOD_BASE_URI}
+      # It's rarely good to go straight XML->RDF, misses too much that csv2rdf4lod provides for free...
+      echo automatic/pronom-formats.ttl
+      saxon.sh ../../src/pronom-formats.xsl a a -v accept=text/turtle BASE_URI=$base -in source/$sig_file > automatic/$sig_file.ttl
       # TODO: The extension is falling on the floor ATM.
       #        <FileFormat ID="45" MIMEType="text/csv"
       #            Name="Comma Separated Values" PUID="x-fmt/18">
       #            <Extension>csv</Extension>
       #        </FileFormat>
+      echo automatic/pronom-formats.csv
+      saxon.sh ../../src/pronom-formats.xsl a a -v accept=text/csv                   -in source/$sig_file > automatic/$sig_file.csv
+
+
+      if [[ 'process-csvs' == 'no' ]]; then
+         # The CSVs have less information than the XMLs.
+         echo automatic/retrieve-format-csv.sh                                                               
+         cat automatic/retrieve-format-xml.sh | sed 's/xml/csv/;s/XML/CSV/' > automatic/retrieve-format-csv.sh
+         source automatic/retrieve-format-csv.sh
+      fi
 
       echo automatic/retrieve-format-xml.sh
       saxon.sh ../../src/pronom-format-ids.xsl a a source/DROID*.xml | awk -f ../../src/retrieve-xml.awk > automatic/retrieve-format-xml.sh
-      #echo automatic/retrieve-format-csv.sh                                                               
-      #cat automatic/retrieve-format-xml.sh | sed 's/xml/csv/;s/XML/CSV/' > automatic/retrieve-format-csv.sh
-      echo
-
       source automatic/retrieve-format-xml.sh
-      #source automatic/retrieve-format-csv.sh
+      echo
 
       echo "#!/bin/bash"                                                                                          > convert-pronom.sh
       echo                                                                                                       >> convert-pronom.sh

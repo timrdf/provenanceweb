@@ -1,6 +1,8 @@
 <!-- Timothy Lebo -->
 
 <!-- This processes a DROID/PRONOM signature file, which looks like:
+   e.g. http://www.nationalarchives.gov.uk/documents/DROID_SignatureFile_V77.xml
+
    <FFSignatureFile DateCreated="2012-10-25T12:11:19" Version="65" 
       xmlns="http://www.nationalarchives.gov.uk/pronom/SignatureFile">
         ...
@@ -36,7 +38,7 @@ saxon.sh ../../src/pronom-format-id.xsl a a -v accept=text/turtle source=http://
                xmlns:sig="http://www.nationalarchives.gov.uk/pronom/SignatureFile"
                exclude-result-prefixes="">
 <xsl:output method="text"/>
-<xsl:param name="accept" select='text'/> <!-- Also, text/turtle -->
+<xsl:param name="accept" select='text/csv'/> <!-- Also, text/turtle -->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!-- Change if you want to host your own URIs for the formats. -->
@@ -50,6 +52,7 @@ saxon.sh ../../src/pronom-format-id.xsl a a -v accept=text/turtle source=http://
 <xsl:template match="/">
    <xsl:if test="$accept = 'text/turtle'">
       <xsl:value-of select="concat('@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .',$NL)"/>
+      <xsl:value-of select="concat('@prefix w3cfmt:  &lt;http://www.w3.org/ns/formats/&gt; .',$NL)"/>
       <xsl:value-of select="concat('@prefix prov:    &lt;http://www.w3.org/ns/prov#&gt; .',$NL)"/>
       <xsl:value-of select="concat('@prefix pronom:  &lt;http://reference.data.gov.uk/technical-registry/&gt; .',$NL)"/>
       <xsl:value-of select="$NL"/>
@@ -80,7 +83,8 @@ saxon.sh ../../src/pronom-format-id.xsl a a -v accept=text/turtle source=http://
                                       '   pronom:strFileFormatID ',$DQ,@ID,$DQ,';',$NL)"/>
 
             <xsl:for-each-group select="sig:Extension" group-by=".">
-               <xsl:value-of select="concat('   pronom:extension ',$DQ,.,$DQ,';',$NL)"/>
+               <xsl:value-of select="concat('   pronom:hasExtension     ',$DQ,.,$DQ,';',$NL)"/>
+               <xsl:value-of select="concat('   w3cfmt:preferred_suffix ',$DQ,.,$DQ,';',$NL)"/>
             </xsl:for-each-group>
 
             <xsl:for-each-group select="sig:HasPriorityOverFileFormatID" group-by=".">

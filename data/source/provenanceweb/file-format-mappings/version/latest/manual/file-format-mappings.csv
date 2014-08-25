@@ -1,1 +1,4 @@
-IANA,PRONOM,W3Cformat/mime/text/csv,formats/pronom/x-fmt/18,-format/mime/text/turtle,,Turtleformat/mime/application/rdf+xml,,RDF_XML
+IANA,PRONOM,W3C
+format/mime/text/csv,formats/pronom/x-fmt/18,-
+format/mime/text/turtle,,Turtle
+format/mime/application/rdf+xml,,RDF_XML
