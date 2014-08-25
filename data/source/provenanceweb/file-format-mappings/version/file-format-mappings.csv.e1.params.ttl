@@ -111,6 +111,13 @@
          #conversion:range_name  "Thing";
       ];
       conversion:enhance [
+         ov:csvCol          3;
+         ov:csvHeader       "W3C";
+         conversion:equivalent_property prov:alternateOf;
+         conversion:range_template  " http://www.w3.org/ns/formats/[!]";
+         conversion:range   dcterms:FileFormat;
+      ];
+      conversion:enhance [
          a conversion:TemplatedTopicsEnhancement;
 
          conversion:topic [
