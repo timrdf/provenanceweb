@@ -163,6 +163,10 @@
                a dcterms:FileFormat;
                conversion:name "[/]format/mime/[#1]";
             ];
+            prov:alternateOf [ 
+               a dcterms:FileFormat;
+               conversion:name "http://purl.org/NET/mediatypes/[#1]";
+            ];
             #formats:preferred_suffix [ prov:value "[#3]" ];
          ];
          #conversion:topic [
